@@ -77,10 +77,13 @@ function renderProducts() {
     .forEach((p) => {
       const card = document.createElement('article');
       card.className = 'card product';
+      const media = p.real
+        ? 'Replace with real shirt image here'
+        : `<div class="product-graphic" data-label="${p.status.toUpperCase()}"></div>`;
       card.innerHTML = `
         <div class="badge">${p.status}</div>
         <div class="product-media ${p.real ? 'placeholder' : ''}">
-          ${p.real ? 'Replace with real shirt image here' : ''}
+          ${media}
         </div>
         <h3>${p.name}</h3>
         <p>${p.description}</p>

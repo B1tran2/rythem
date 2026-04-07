@@ -43,7 +43,11 @@ body {
 .dark { background: #18181b; color: #fff; }
 .eyebrow { display: inline-block; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; font-weight: 800; color: #c2410c; }
 .hero { display: grid; grid-template-columns: 1.2fr auto; align-items: end; gap: 20px; position: relative; overflow: hidden; }
+.logo-lockup { display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.logo-mark { width: 30px; height: 30px; border-radius: 999px; display: grid; place-items: center; background: #18181b; color: #fff; font-size: 14px; box-shadow: 0 10px 24px rgba(0,0,0,.16); }
+.logo-word { font-weight: 900; letter-spacing: .12em; font-size: 14px; }
 .hero h1 { font-size: clamp(52px, 9vw, 120px); margin: 6px 0; line-height: .9; }
+.hero h1 { background: linear-gradient(180deg, #111827 20%, #3f3f46 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .subtitle { color: var(--muted); font-size: 18px; }
 .actions { margin-top: 24px; display: flex; gap: 10px; flex-wrap: wrap; }
 .btn { border: 1px solid var(--line); padding: 11px 18px; border-radius: 999px; background: #fff; font-weight: 700; cursor: pointer; }
@@ -57,6 +61,8 @@ body {
 .grid { display: grid; gap: 16px; margin-top: 16px; }
 .grid.two { grid-template-columns: repeat(2, 1fr); }
 .grid.two-one { grid-template-columns: 2fr 1fr; }
+.brand-strip { margin-top: 14px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.brand-strip span { border: 1px solid var(--line); border-radius: 999px; padding: 9px 10px; text-align: center; font-size: 11px; font-weight: 800; letter-spacing: .08em; background: rgba(255,255,255,.8); }
 .spotlight-placeholder { margin-top: 16px; border: 1px solid #d4d4d8; border-radius: 16px; padding: 12px; background: linear-gradient(135deg,#fafafa,#fff); }
 .inner-placeholder { border: 2px dashed #a1a1aa; border-radius: 12px; min-height: 130px; display: grid; place-items: center; color: #52525b; font-size: 13px; }
 .note { margin-top: 10px; font-size: 12px; color: #c2410c; background: #fff7ed; border: 1px solid #fed7aa; padding: 8px 10px; border-radius: 10px; }
@@ -72,6 +78,9 @@ body {
 .badge { position: absolute; top: 14px; right: 14px; background: var(--accent); color: #fff; border-radius: 999px; font-size: 11px; font-weight: 700; padding: 5px 10px; }
 .product-media { min-height: 190px; border-radius: 14px; background: linear-gradient(135deg,#f4f4f5,#fff,#e4e4e7); margin-bottom: 10px; display: grid; place-items: center; border: 1px solid #e4e4e7; }
 .product-media.placeholder { border: 2px dashed #a1a1aa; background: #fff; color: #52525b; font-size: 12px; text-align: center; padding: 10px; }
+.product-graphic { width: 100%; height: 100%; border-radius: 12px; position: relative; overflow: hidden; background: linear-gradient(145deg,#fafafa,#e4e4e7); }
+.product-graphic::before { content: ''; position: absolute; inset: -20% 40% auto -10%; height: 130%; transform: rotate(18deg); background: linear-gradient(to bottom, rgba(249,115,22,.65), rgba(249,115,22,0)); }
+.product-graphic::after { content: attr(data-label); position: absolute; left: 10px; bottom: 10px; font-size: 10px; letter-spacing: .1em; font-weight: 800; color: #27272a; }
 .product h3 { margin: 6px 0 4px; }
 .product p { margin: 0; color: var(--muted); font-size: 14px; }
 .product-foot { margin-top: 12px; display: flex; justify-content: space-between; align-items: center; }
@@ -83,8 +92,10 @@ body {
 .cart-summary { margin-top: 10px; background: #18181b; color: #fff; border-radius: 14px; padding: 14px; }
 .cart-fab { position: fixed; right: 20px; bottom: 20px; z-index: 18; border: 0; background: #18181b; color: #fff; border-radius: 999px; padding: 12px 18px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 32px rgba(0,0,0,.25); }
 .dev-only.hidden { display: none !important; }
+.manifesto p { font-size: 15px; line-height: 1.7; color: #3f3f46; }
 @media (max-width: 960px) {
   .hero { grid-template-columns: 1fr; }
   .grid.two, .grid.two-one, .product-grid { grid-template-columns: 1fr; }
+  .brand-strip { grid-template-columns: repeat(2, 1fr); }
   .topbar { border-radius: 18px; }
 }
