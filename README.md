@@ -1,6 +1,15 @@
-# RYTHEM Frontend (Local Demo Setup)
+# RYTHEM Frontend (GitHub Pages + Local Demo)
 
 A frontend-only class project for a live classroom presentation.
+
+## GitHub Pages note
+
+This version is configured to run correctly on GitHub Pages.
+
+- Repository base path: `/rythem/`
+- Final public URL: **https://b1tran2.github.io/rythem/**
+
+If the page is blank on GitHub Pages, make sure you deployed the latest build after this base-path fix.
 
 ## Quick Start (only 2 required commands)
 
@@ -14,6 +23,12 @@ Then open:
 - `http://localhost:5173`
 
 That is all you need for the demo.
+
+For GitHub Pages publish:
+
+```bash
+npm run deploy
+```
 
 ---
 
