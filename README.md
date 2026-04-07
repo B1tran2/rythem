@@ -1,147 +1,100 @@
-# RYTHEM Frontend (Vite + React)
+# RYTHEM Frontend (Local Demo Setup)
 
-This is a **frontend-only** class project ready for **GitHub Pages**.
+A frontend-only class project for a live classroom presentation.
 
-## Quick Start
-
-1. Open this project folder in a terminal.
-2. Run `npm install`.
-3. Run `npm run deploy`.
-4. In GitHub → **Settings → Pages** set:
-   - Source: **Deploy from a branch**
-   - Branch: **gh-pages**
-   - Folder: **/ (root)**
-5. Open: **https://b1tran2.github.io/rythem/**
-
----
-
-## Confirmed setup values
-
-- GitHub username: `b1tran2`
-- Repository name: `rythem`
-- Vite base path: `'/rythem/'`
-- Deploy command: `gh-pages -d dist`
-- Final public URL: **https://b1tran2.github.io/rythem/**
-
----
-
-## Exact commands to run
-
-### macOS / Linux
+## Quick Start (only 2 required commands)
 
 ```bash
 npm install
-npm run deploy
+npm run dev
 ```
 
-### Windows PowerShell
+Then open:
 
-```powershell
-npm install
-npm run deploy
-```
+- `http://localhost:5173`
 
----
-
-## How to know `npm install` worked
-
-`npm install` is successful when:
-
-- The command ends without `npm ERR!` lines.
-- You see a summary like packages added/audited.
-- A `node_modules` folder is created in the project.
-- A `package-lock.json` file is created or updated.
+That is all you need for the demo.
 
 ---
 
-## How to know `npm run deploy` worked
+## What this project includes
 
-`npm run deploy` is successful when:
-
-- You see the build step complete first (`vite build`).
-- A `dist/` folder is generated.
-- You see output from `gh-pages` publishing to the `gh-pages` branch.
-- On GitHub, the `gh-pages` branch appears/updates with a recent commit.
-
-Then wait **1–5 minutes** (sometimes up to **10 minutes**) and open:
-
-- **https://b1tran2.github.io/rythem/**
+- Premium single-page showcase experience
+- Core demo sections:
+  - Home
+  - Catalogue / Shop
+  - Cart
+  - About Us
+- Developer POV / Client POV toggle for presentation mode switching
+- No backend, no payment, no auth
 
 ---
 
-## Deployment checklist (simple)
+## Beginner local setup guide
 
-1. Repo name is exactly **`rythem`**.
-2. `vite.config.js` contains `base: '/rythem/'`.
-3. `package.json` contains:
-   - `predeploy`: `npm run build`
-   - `deploy`: `gh-pages -d dist`
-   - `gh-pages` in `devDependencies`
-4. GitHub Pages is set to:
-   - Source: `Deploy from a branch`
-   - Branch: `gh-pages`
-   - Folder: `/ (root)`
+1. Install Node.js LTS (if not installed already).
+2. Open this project folder in a terminal.
+3. Run `npm install` once.
+4. Run `npm run dev`.
+5. Open `http://localhost:5173`.
+
+To stop the local server, press `Ctrl + C` in the terminal.
 
 ---
 
-## Troubleshooting
+## Presentation checklist (2 minutes before class)
 
-### 1) `vite: not found`
-
-Cause: dependencies were not installed correctly.
-
-Fix:
-
-```bash
-npm install
-```
-
-If it still fails:
-
-```bash
-npm cache clean --force
-npm install
-```
-
-### 2) Blank page after deployment
-
-Most common causes:
-
-- Wrong Vite `base` value.
-- Browser is showing old cached files.
-- Deployment has not finished yet.
-
-Fix:
-
-1. Confirm `vite.config.js` has `base: '/rythem/'`.
-2. Wait up to 10 minutes.
-3. Hard refresh browser (`Ctrl+F5` or `Cmd+Shift+R`).
-4. Re-run:
-
-   ```bash
-   npm run deploy
-   ```
-
-### 3) Wrong GitHub Pages branch selected
-
-Fix:
-
-1. Go to GitHub → **Settings → Pages**.
-2. Set:
-   - Source: `Deploy from a branch`
-   - Branch: `gh-pages`
-   - Folder: `/ (root)`
-3. Save and wait a few minutes.
+- [ ] Run `npm run dev` and confirm the page opens.
+- [ ] Test top navigation tabs:
+  - [ ] Home
+  - [ ] Catalogue
+  - [ ] Cart
+  - [ ] About Us
+- [ ] Toggle **Developer POV / Client POV** and verify notes appear/disappear clearly.
+- [ ] Add a few items in Catalogue and check Cart update works.
+- [ ] Keep browser zoom at 100% for best visual balance.
+- [ ] Use full-screen browser mode for presentation.
 
 ---
 
-## Routing compatibility note
+## Real T-shirt image replacement (easy)
 
-This project does **not** use backend routing.
-It uses section-based UI state (no React Router path dependency), so it is compatible with GitHub Pages static hosting.
+Current placeholder is in `src/App.jsx` inside:
+
+- Home spotlight block
+- Catalogue card for **RYTHEM Origin Tee**
+
+Quick replacement steps:
+
+1. Add your real image file (example):
+   - `src/assets/origin-tee.jpg`
+2. Replace the placeholder box in `src/App.jsx` with an `<img>` using that file.
+3. Save the file; Vite auto-refreshes the page.
+
+Tip: Use a clean PNG/JPG with good lighting for a premium look.
 
 ---
 
-## Final URL (confirmed)
+## If something fails
 
-- **https://b1tran2.github.io/rythem/**
+### `npm install` fails
+
+- Check internet connection.
+- Try:
+
+  ```bash
+  npm cache clean --force
+  npm install
+  ```
+
+### `npm run dev` fails
+
+- Run `npm install` again.
+- Ensure Node.js is installed (`node -v`).
+
+---
+
+## Notes
+
+- Website content is fully in English.
+- This project is intentionally local-first for a reliable classroom demo.

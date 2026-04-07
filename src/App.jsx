@@ -76,6 +76,7 @@ function App() {
   const [devMode, setDevMode] = useState(true);
   const [cart, setCart] = useState({});
   const [activeFilter, setActiveFilter] = useState('All');
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
   const visibleProducts = useMemo(
     () => products.filter((p) => activeFilter === 'All' || p.category === activeFilter),
@@ -102,7 +103,15 @@ function App() {
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
-    <main className="min-h-screen bg-zinc-50 text-zinc-900">
+    <main
+      className="min-h-screen bg-zinc-50 text-zinc-900"
+      onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
+    >
+      <motion.div
+        className="pointer-events-none fixed z-0 h-40 w-40 -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-400/20 blur-3xl"
+        animate={{ x: cursor.x, y: cursor.y }}
+        transition={{ type: 'tween', ease: 'linear', duration: 0.2 }}
+      />
       <div className="pointer-events-none fixed inset-0 bg-grid bg-[size:40px_40px] opacity-30" />
       <div className="fixed left-1/2 top-4 z-50 w-[min(960px,94%)] -translate-x-1/2 rounded-full border border-zinc-900/10 bg-white/90 px-3 py-2 shadow-lg backdrop-blur">
         <div className="flex flex-wrap items-center justify-between gap-2">
@@ -248,7 +257,8 @@ function App() {
                     <div className="mb-4 h-48 rounded-2xl bg-gradient-to-br from-zinc-100 via-white to-zinc-200 p-4">
                       {product.real ? (
                         <div className="flex h-full items-center justify-center rounded-xl border-2 border-dashed border-zinc-400 text-center text-xs text-zinc-600">
-                          {/* Replace this box with your real T-shirt image element/src when available. */}
+                          {/* Replace this box with your real T-shirt image element/src when available.
+                             Suggested file location: src/assets/origin-tee.jpg */}
                           Replace with real shirt image here
                         </div>
                       ) : (
