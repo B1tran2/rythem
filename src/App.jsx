@@ -101,6 +101,7 @@ function App() {
     .filter(Boolean);
 
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <main
@@ -149,6 +150,11 @@ function App() {
           </button>
         </div>
       </div>
+      {devMode && (
+        <div className="fixed left-1/2 top-[76px] z-40 -translate-x-1/2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-orange-700">
+          Developer notes visible
+        </div>
+      )}
 
       <section className="mx-auto w-[min(1200px,92%)] pt-28">
         <AnimatePresence mode="wait">
@@ -313,7 +319,7 @@ function App() {
               className="rounded-3xl border border-zinc-900/10 bg-white p-6 md:p-8"
             >
               <h2 className="text-4xl font-black uppercase">Cart</h2>
-              <p className="mt-2 text-sm text-zinc-500">A clean demo cart for live presentation flow.</p>
+              <p className="mt-2 text-sm text-zinc-500">A clean demo cart for live presentation flow. {cartCount} item{cartCount === 1 ? '' : 's'} selected.</p>
               {cartItems.length === 0 ? (
                 <div className="mt-6 rounded-2xl border border-dashed border-zinc-300 p-8 text-center text-zinc-500">
                   Your rhythm bag is empty. Add a piece from the drop.
@@ -391,7 +397,7 @@ function App() {
         className="fixed bottom-6 right-6 z-40 inline-flex items-center gap-2 rounded-full bg-zinc-900 px-5 py-3 text-sm font-semibold text-white shadow-2xl"
       >
         <ShoppingBag className="h-4 w-4" />
-        Cart {cartItems.length > 0 && `(${cartItems.length})`}
+        Cart {cartCount > 0 && `(${cartCount})`}
       </motion.button>
     </main>
   );

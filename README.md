@@ -57,6 +57,18 @@ To stop the local server, press `Ctrl + C` in the terminal.
 
 ---
 
+## Demo Flow
+
+Recommended order in class:
+
+1. **Home** (brand intro + hero impact)
+2. **Catalogue / Shop** (show filters and product cards)
+3. **DEV / CLIENT toggle** (show notes on/off)
+4. **Cart** (add/remove items live)
+5. **About Us** (close with brand story)
+
+---
+
 ## Real T-shirt image replacement (easy)
 
 Current placeholder is in `src/App.jsx` inside:
