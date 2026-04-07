@@ -104,7 +104,7 @@ function App() {
 
   return (
     <main
-      className="min-h-screen bg-zinc-50 text-zinc-900"
+      className="relative min-h-screen overflow-x-clip bg-zinc-50 text-zinc-900"
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
     >
       <motion.div
@@ -132,8 +132,11 @@ function App() {
           </div>
           <button
             onClick={() => setDevMode((v) => !v)}
-            className="group relative inline-flex items-center gap-2 rounded-full border border-zinc-900/20 bg-white px-2 py-1"
+            className="group relative inline-flex items-center gap-2 rounded-full border border-zinc-900/20 bg-white px-2 py-1.5 shadow-sm"
           >
+            <span className={`rounded-full px-2 py-0.5 text-[11px] font-bold ${devMode ? 'bg-orange-100 text-orange-700' : 'bg-zinc-100 text-zinc-700'}`}>
+              {devMode ? 'DEV' : 'CLIENT'}
+            </span>
             <span className="text-xs font-semibold">{devMode ? 'Developer POV' : 'Client POV'}</span>
             <span className={`h-5 w-10 rounded-full p-0.5 ${devMode ? 'bg-orange-400' : 'bg-zinc-300'}`}>
               <motion.span
@@ -163,12 +166,24 @@ function App() {
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 5, repeat: Infinity }}
                 />
+                <motion.div
+                  className="pointer-events-none absolute bottom-6 left-8 right-8 h-1 bg-gradient-to-r from-transparent via-orange-400/60 to-transparent"
+                  animate={{ scaleX: [0.6, 1, 0.6], opacity: [0.3, 0.9, 0.3] }}
+                  transition={{ duration: 2.8, repeat: Infinity }}
+                />
                 <div className="grid gap-8 md:grid-cols-[1.2fr_auto] md:items-end">
                   <div>
                     <p className="mb-3 inline-block rounded-full border border-orange-500/40 bg-orange-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-orange-700">
                       Streetwear with pulse
                     </p>
-                    <h1 className="text-5xl font-black uppercase leading-[0.9] md:text-8xl">RYTHEM</h1>
+                    <motion.h1
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6 }}
+                      className="text-5xl font-black uppercase leading-[0.9] md:text-8xl"
+                    >
+                      RYTHEM
+                    </motion.h1>
                     <p className="mt-4 max-w-xl text-lg text-zinc-700">Whatever you do, do it with rhythm.</p>
                     <div className="mt-8 flex flex-wrap gap-3">
                       <button
@@ -203,9 +218,11 @@ function App() {
                   <p className="mt-3 text-zinc-600">
                     A foundation piece with tempo graphics and clean architecture. Start with one shirt, build the world around its rhythm.
                   </p>
-                  <div className="mt-5 h-52 rounded-2xl border-2 border-dashed border-zinc-300 bg-zinc-50 p-4 text-sm text-zinc-500">
+                  <div className="mt-5 h-52 rounded-2xl border border-zinc-300 bg-gradient-to-br from-zinc-50 to-white p-4 text-sm text-zinc-500 shadow-inner">
                     {/* Replace this panel with the real RYTHEM Origin Tee photo spotlight image. */}
-                    Origin Tee spotlight image placeholder.
+                    <div className="flex h-full items-center justify-center rounded-xl border-2 border-dashed border-zinc-400 bg-white">
+                      Origin Tee spotlight image placeholder.
+                    </div>
                   </div>
                 </div>
                 <div className="rounded-3xl border border-zinc-900/10 bg-zinc-900 p-6 text-white">
@@ -249,7 +266,7 @@ function App() {
                   <motion.article
                     key={product.id}
                     whileHover={{ y: -6, rotateX: 2, rotateY: -2 }}
-                    className="group relative overflow-hidden rounded-3xl border border-zinc-900/10 bg-white p-5 shadow-sm"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-zinc-900/10 bg-white p-5 shadow-sm"
                   >
                     <div className="absolute right-4 top-4 rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold text-white">
                       {product.status}
@@ -267,7 +284,7 @@ function App() {
                     </div>
                     <h3 className="text-xl font-bold">{product.name}</h3>
                     <p className="mt-2 text-sm text-zinc-600">{product.description}</p>
-                    <div className="mt-5 flex items-center justify-between">
+                    <div className="mt-5 flex items-center justify-between pt-2">
                       <span className="text-lg font-semibold">£{product.price}</span>
                       <button
                         onClick={() => addToCart(product.id)}
@@ -296,6 +313,7 @@ function App() {
               className="rounded-3xl border border-zinc-900/10 bg-white p-6 md:p-8"
             >
               <h2 className="text-4xl font-black uppercase">Cart</h2>
+              <p className="mt-2 text-sm text-zinc-500">A clean demo cart for live presentation flow.</p>
               {cartItems.length === 0 ? (
                 <div className="mt-6 rounded-2xl border border-dashed border-zinc-300 p-8 text-center text-zinc-500">
                   Your rhythm bag is empty. Add a piece from the drop.
@@ -342,6 +360,7 @@ function App() {
               className="space-y-6"
             >
               <h2 className="text-4xl font-black uppercase md:text-6xl">About RYTHEM</h2>
+              <p className="max-w-2xl text-zinc-600">Streetwear built around movement, rhythm, and confident self-expression.</p>
               <div className="grid gap-5 md:grid-cols-2">
                 <article className="rounded-3xl border border-zinc-900/10 bg-white p-6">
                   <h3 className="text-2xl font-bold">From beat to street</h3>
