@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RYTHEM — Streetwear with Pulse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-grid"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <header class="topbar">
+      <nav class="nav" id="navTabs">
+        <button class="tab active" data-section="home">Home</button>
+        <button class="tab" data-section="catalogue">Catalogue</button>
+        <button class="tab" data-section="cart">Cart</button>
+        <button class="tab" data-section="about">About Us</button>
+      </nav>
+      <button class="toggle" id="povToggle" aria-label="Toggle developer and client mode">
+        <span class="mode-tag" id="modeTag">DEV</span>
+        <span id="modeLabel">Developer POV</span>
+        <span class="switch"><span class="knob" id="toggleKnob"></span></span>
+      </button>
+    </header>
+    <div class="dev-pill" id="devPill">Developer notes visible</div>
+
+    <main class="container">
+      <section id="home" class="section active">
+        <div class="hero card">
+          <div class="hero-pulse"></div>
+          <div>
+            <p class="eyebrow">Streetwear with pulse</p>
+            <h1>RYTHEM</h1>
+            <p class="subtitle">Whatever you do, do it with rhythm.</p>
+            <div class="actions">
+              <button class="btn primary" data-jump="catalogue">Explore the Drop</button>
+              <button class="btn">Enter the Rhythm</button>
+            </div>
+          </div>
+          <div class="metronome" aria-hidden="true"><div class="arm"></div></div>
+        </div>
+
+        <div class="grid two-one">
+          <article class="card">
+            <h2>Featured Drop — Origin Pulse</h2>
+            <p>A foundation piece with tempo graphics and clean architecture. Start with one shirt, build the world around its rhythm.</p>
+            <div class="spotlight-placeholder">
+              <div class="inner-placeholder">Origin Tee spotlight image placeholder</div>
+            </div>
+            <p class="dev-only note">DEV NOTE: Replace spotlight placeholder with your real tee image.</p>
+          </article>
+          <article class="card dark">
+            <p class="eyebrow">Motion in Fabric</p>
+            <p>Prototype silhouettes, future drop outlines, and locked pieces shape the RYTHEM universe.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="catalogue" class="section">
+        <div class="row-head">
+          <h2 class="display">Drop Catalogue</h2>
+          <div class="sort-pill">Sort: Most Rhythmic</div>
+        </div>
+        <div class="filters" id="filters"></div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section id="cart" class="section">
+        <article class="card">
+          <h2 class="display">Cart</h2>
+          <p id="cartMeta" class="muted">A clean demo cart for live presentation flow.</p>
+          <div id="cartContent"></div>
+        </article>
+      </section>
+
+      <section id="about" class="section">
+        <h2 class="display">About RYTHEM</h2>
+        <p class="muted">Streetwear built around movement, rhythm, and confident self-expression.</p>
+        <div class="grid two">
+          <article class="card">
+            <h3>From beat to street</h3>
+            <p>RYTHEM is a movement-first streetwear concept from England. We design clothing like choreography—layers, pause, impact, repeat.</p>
+          </article>
+          <article class="card dark">
+            <p class="eyebrow">Manifesto</p>
+            <blockquote>“Your rhythm, your uniform.”</blockquote>
+          </article>
+        </div>
+        <article class="card">
+          <h3>Why the metronome?</h3>
+          <p>The metronome is our symbol of discipline and expression. It marks time, then you break it. Fashion should do the same.</p>
+        </article>
+      </section>
+    </main>
+
+    <button class="cart-fab" id="cartFab">Cart</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
