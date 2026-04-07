@@ -1,127 +1,57 @@
-# RYTHEM Frontend (GitHub Pages + Local Demo)
+# RYTHEM — Pure Static GitHub Pages Website
 
-A frontend-only class project for a live classroom presentation.
+This project is now a **pure static website** (no React, no Vite, no npm commands required).
 
-## GitHub Pages note
+## What changed
 
-This version is configured to run correctly on GitHub Pages.
+The site now runs directly from static files in the repository root:
 
-- Repository base path: `/rythem/`
-- Final public URL: **https://b1tran2.github.io/rythem/**
+- `index.html`
+- `style.css`
+- `script.js`
 
-If the page is blank on GitHub Pages, make sure you deployed the latest build after this base-path fix.
+This makes it compatible with GitHub Pages using:
 
-## Quick Start (only 2 required commands)
+- **Branch:** `main`
+- **Folder:** `/ (root)`
 
-```bash
-npm install
-npm run dev
-```
+## Final URL
 
-Then open:
+- **https://b1tran2.github.io/rythem/**
 
-- `http://localhost:5173`
+## No installation needed
 
-That is all you need for the demo.
+You do **not** need:
 
-For GitHub Pages publish:
+- `npm install`
+- `npm run dev`
+- `npm run build`
+- `npm run deploy`
 
-```bash
-npm run deploy
-```
+Just push the files to GitHub and let GitHub Pages serve them.
 
----
+## Features kept
 
-## What this project includes
+- Premium RYTHEM visual identity
+- Sections: Home, Catalogue / Shop, Cart, About Us
+- Developer POV / Client POV toggle
+- Real T-shirt placeholder (easy to replace)
+- Interactive demo cart (add/remove)
+- Smooth section switching and subtle motion effects
 
-- Premium single-page showcase experience
-- Core demo sections:
-  - Home
-  - Catalogue / Shop
-  - Cart
-  - About Us
-- Developer POV / Client POV toggle for presentation mode switching
-- No backend, no payment, no auth
+## Image replacement note
 
----
+To replace the real T-shirt placeholder, edit the relevant placeholder areas in:
 
-## Beginner local setup guide
+- `index.html` (home spotlight)
+- `script.js` (catalogue product card template)
 
-1. Install Node.js LTS (if not installed already).
-2. Open this project folder in a terminal.
-3. Run `npm install` once.
-4. Run `npm run dev`.
-5. Open `http://localhost:5173`.
+## GitHub Pages setup (quick)
 
-To stop the local server, press `Ctrl + C` in the terminal.
-
----
-
-## Presentation checklist (2 minutes before class)
-
-- [ ] Run `npm run dev` and confirm the page opens.
-- [ ] Test top navigation tabs:
-  - [ ] Home
-  - [ ] Catalogue
-  - [ ] Cart
-  - [ ] About Us
-- [ ] Toggle **Developer POV / Client POV** and verify notes appear/disappear clearly.
-- [ ] Add a few items in Catalogue and check Cart update works.
-- [ ] Keep browser zoom at 100% for best visual balance.
-- [ ] Use full-screen browser mode for presentation.
-
----
-
-## Demo Flow
-
-Recommended order in class:
-
-1. **Home** (brand intro + hero impact)
-2. **Catalogue / Shop** (show filters and product cards)
-3. **DEV / CLIENT toggle** (show notes on/off)
-4. **Cart** (add/remove items live)
-5. **About Us** (close with brand story)
-
----
-
-## Real T-shirt image replacement (easy)
-
-Current placeholder is in `src/App.jsx` inside:
-
-- Home spotlight block
-- Catalogue card for **RYTHEM Origin Tee**
-
-Quick replacement steps:
-
-1. Add your real image file (example):
-   - `src/assets/origin-tee.jpg`
-2. Replace the placeholder box in `src/App.jsx` with an `<img>` using that file.
-3. Save the file; Vite auto-refreshes the page.
-
-Tip: Use a clean PNG/JPG with good lighting for a premium look.
-
----
-
-## If something fails
-
-### `npm install` fails
-
-- Check internet connection.
-- Try:
-
-  ```bash
-  npm cache clean --force
-  npm install
-  ```
-
-### `npm run dev` fails
-
-- Run `npm install` again.
-- Ensure Node.js is installed (`node -v`).
-
----
-
-## Notes
-
-- Website content is fully in English.
-- This project is intentionally local-first for a reliable classroom demo.
+1. Open your repository settings on GitHub.
+2. Go to **Pages**.
+3. Set source to:
+   - Branch: `main`
+   - Folder: `/ (root)`
+4. Save and wait a few minutes.
+5. Open: `https://b1tran2.github.io/rythem/`
