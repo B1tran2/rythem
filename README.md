@@ -1,110 +1,147 @@
 # RYTHEM Frontend (Vite + React)
 
-This is a **frontend-only** class project and is ready for static deployment on **GitHub Pages**.
+This is a **frontend-only** class project ready for **GitHub Pages**.
 
-## Confirmed project values
+## Quick Start
+
+1. Open this project folder in a terminal.
+2. Run `npm install`.
+3. Run `npm run deploy`.
+4. In GitHub → **Settings → Pages** set:
+   - Source: **Deploy from a branch**
+   - Branch: **gh-pages**
+   - Folder: **/ (root)**
+5. Open: **https://b1tran2.github.io/rythem/**
+
+---
+
+## Confirmed setup values
 
 - GitHub username: `b1tran2`
 - Repository name: `rythem`
 - Vite base path: `'/rythem/'`
-- Final target URL: `https://b1tran2.github.io/rythem/`
-
----
-
-## Deployment checklist (beginner friendly)
-
-Use this checklist in order:
-
-1. Confirm your repository on GitHub is named exactly **`rythem`**.
-2. Confirm `vite.config.js` contains exactly `base: '/rythem/'`.
-3. Confirm `package.json` has:
-   - `predeploy`: `npm run build`
-   - `deploy`: `gh-pages -d dist`
-   - `gh-pages` in `devDependencies`
-4. Push your latest code to GitHub (`main` branch).
-5. Run deploy command locally (see exact commands below).
-6. In GitHub: **Settings → Pages**
-   - Source: **Deploy from a branch**
-   - Branch: **gh-pages**
-   - Folder: **/ (root)**
-7. Wait for publishing to finish, then open:
-   - `https://b1tran2.github.io/rythem/`
+- Deploy command: `gh-pages -d dist`
+- Final public URL: **https://b1tran2.github.io/rythem/**
 
 ---
 
 ## Exact commands to run
 
-Run these commands from the project root folder:
+### macOS / Linux
 
 ```bash
 npm install
 npm run deploy
 ```
 
-What happens:
+### Windows PowerShell
 
-- `npm run deploy` automatically runs `npm run build` first (`predeploy`).
-- Vite generates the static output in `dist/`.
-- `gh-pages` publishes `dist/` to the `gh-pages` branch.
-
----
-
-## Build output folder
-
-After build, the generated static site folder is:
-
-- `dist/`
-
-You do **not** need to manually upload `dist/` when using `npm run deploy`.
+```powershell
+npm install
+npm run deploy
+```
 
 ---
 
-## GitHub Pages timing
+## How to know `npm install` worked
 
-After `npm run deploy`, GitHub Pages usually updates in about **1–5 minutes**.
-Sometimes it can take up to **10 minutes**.
+`npm install` is successful when:
 
-If the page is not updated yet:
-
-1. Refresh after 1–2 minutes.
-2. Check **Settings → Pages** for deployment status.
-3. Check the latest commit in the `gh-pages` branch.
+- The command ends without `npm ERR!` lines.
+- You see a summary like packages added/audited.
+- A `node_modules` folder is created in the project.
+- A `package-lock.json` file is created or updated.
 
 ---
 
-## If `npm install` fails
+## How to know `npm run deploy` worked
 
-Try these steps in order:
+`npm run deploy` is successful when:
 
-1. Check internet connection.
-2. Run:
+- You see the build step complete first (`vite build`).
+- A `dist/` folder is generated.
+- You see output from `gh-pages` publishing to the `gh-pages` branch.
+- On GitHub, the `gh-pages` branch appears/updates with a recent commit.
+
+Then wait **1–5 minutes** (sometimes up to **10 minutes**) and open:
+
+- **https://b1tran2.github.io/rythem/**
+
+---
+
+## Deployment checklist (simple)
+
+1. Repo name is exactly **`rythem`**.
+2. `vite.config.js` contains `base: '/rythem/'`.
+3. `package.json` contains:
+   - `predeploy`: `npm run build`
+   - `deploy`: `gh-pages -d dist`
+   - `gh-pages` in `devDependencies`
+4. GitHub Pages is set to:
+   - Source: `Deploy from a branch`
+   - Branch: `gh-pages`
+   - Folder: `/ (root)`
+
+---
+
+## Troubleshooting
+
+### 1) `vite: not found`
+
+Cause: dependencies were not installed correctly.
+
+Fix:
+
+```bash
+npm install
+```
+
+If it still fails:
+
+```bash
+npm cache clean --force
+npm install
+```
+
+### 2) Blank page after deployment
+
+Most common causes:
+
+- Wrong Vite `base` value.
+- Browser is showing old cached files.
+- Deployment has not finished yet.
+
+Fix:
+
+1. Confirm `vite.config.js` has `base: '/rythem/'`.
+2. Wait up to 10 minutes.
+3. Hard refresh browser (`Ctrl+F5` or `Cmd+Shift+R`).
+4. Re-run:
 
    ```bash
-   npm cache clean --force
-   npm install
+   npm run deploy
    ```
 
-3. If it still fails, delete lock/modules and retry:
+### 3) Wrong GitHub Pages branch selected
 
-   ```bash
-   rm -rf node_modules package-lock.json
-   npm install
-   ```
+Fix:
 
-4. If you are behind a school/company proxy, configure npm proxy settings or try a different network.
-5. If a package registry is blocked on your machine, use a personal network and run install again.
+1. Go to GitHub → **Settings → Pages**.
+2. Set:
+   - Source: `Deploy from a branch`
+   - Branch: `gh-pages`
+   - Folder: `/ (root)`
+3. Save and wait a few minutes.
 
 ---
 
 ## Routing compatibility note
 
-This project does **not** depend on backend routing.
-It uses section-based UI state (not path-based React Router pages), so it is compatible with GitHub Pages static hosting.
+This project does **not** use backend routing.
+It uses section-based UI state (no React Router path dependency), so it is compatible with GitHub Pages static hosting.
 
 ---
 
 ## Final URL (confirmed)
-
-Your public site URL is:
 
 - **https://b1tran2.github.io/rythem/**
